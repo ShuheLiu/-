@@ -10,14 +10,16 @@
             <div style="width: 100%">
             <el-card>
                 <p style="text-align: center">图谱工作间</p>
-                <img src="../assets/image/index-background.jpg" alt="Nothing" style="height: 300px;margin-top: 20px">
+                <!--<img src="../assets/image/index-background.jpg" alt="Nothing" style="height: 300px;margin-top: 20px">-->
+                <draw-graph></draw-graph>
             </el-card>
             </div>
             <div style="width: 100%;margin-top: 20px;">
                 <el-card>
+                    <!--<el-scrollbar>-->
                     <p>课堂讨论区</p>
-                    <el-card style="margin-top: 10px;height: 110px">
-                        <div v-for="o in 2" :key="o" class="text item">
+                    <el-card style="margin-top: 10px;height: 110px;overflow-y: scroll">
+                        <div v-for="o in 10" :key="o" class="text item">
                             {{'列表内容 ' + o }}
                         </div>
                     </el-card>
@@ -25,15 +27,19 @@
                         <el-input placeholder="我也说两句" style="width: 83%" v-model="message"></el-input>
                         <el-button style="margin-left: 10px;background: green;color: white;padding-right: 25px" icon="el-icon-check">发送</el-button>
                     </el-row>
+                    <!--</el-scrollbar>-->
                 </el-card>
+
             </div>
         </div>
     </div>
 </template>
 
 <script>
+    import DrawGraph from "./base/drawGraph";
     export default {
         name: "classStudy",
+        components: {DrawGraph},
         data(){
             return{
                 message:'',
@@ -44,15 +50,18 @@
 
 <style scoped>
     .classStudybody{
+        /*background-color: black;*/
         margin-top: 20px;
         width: 100%;
         max-height: 800px;
+        position: relative;
     }
     .course{
         float: left;
         width: 45%;
         margin-left: 50px;
         height: 650px;
+        /*background-color: black;*/
 
     }
 </style>

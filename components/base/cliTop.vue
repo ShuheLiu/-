@@ -29,6 +29,7 @@
     .menu{
         /*float: right;*/
         margin-right: 40px;
+        z-index: 1;
 
     }
 </style>
